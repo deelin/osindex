@@ -1,0 +1,89 @@
+Weaveworks (Weave works) fka as Zettio,Weave,weaveworks/weave
+Elastic Search,Elastic Search,elastic/elasticsearch
+Elastic Search,Kibana,elastic/kibana
+Elastic Search,Logstash,elastic/logstash
+Saltstack,Saltstack,saltstack/salt
+Hashicorp,Vagrant,mitchellh/vagrant
+Mesosphere,Mesosphere,
+mongoDB,mongoDB,mongodb/mongo
+Streamsets,Streamsets,streamsets/datacollector
+cockroachDB,cockroachDB,cockroachdb/cockroach
+Mirantis,Openstack,openstack/openstack
+RancherOS,RancherOS,racher/os-images
+CircleCI,CircleCI,
+TravisCI,Travis-CI,travis-ci/travis-ci
+CoreOS,CoreOS,
+Sysdig,Sysdig,draios/sysdig
+Datastax,Cassandra,apache/cassandra
+Bitnami,Bitnami,
+Jfrog,Artifactory,
+RedisLabs,Redis,antirez/redis
+,Serverless,serverless/serverless
+Gitlab,Gitlab,
+couchbase,Couchbase ,
+InfluxData,InfluxDB,influxdata/influxdb
+Databricks,Apache Spark,apache/spark
+Docker,Docker,docker/docker
+Redhat,Linux,torvalds/linux
+Google,Tensorflow,tensorflow/tensorflow
+Google,Go,golang/go
+Google,Kubernetes,kubernetes/kubernetes
+Ansible,Ansible,ansible/ansible
+RethinkDB,RethinkDB,rethinkdb/rethinkdb
+,Coffeescript,jashkenas/coffeescript
+,Caffe,BVLC/caffe
+Reddit,Reddit,reddit/reddit
+Raintank,Grafana,grafana/grafana
+PredictionIO,PredictionIO,apache/incubator-predictionio
+Postgrest DB,Postgrest,begriffs/postgrest
+Gremlin,Gremlins.js,marmelab/gremlines.js
+rapid7,metasploit-framework,rapid7/metasploit-framework
+Node.js,Node.js,nodejs/node
+io.js,io.js,
+Datatorrent,Apache Apex,apache/apex-core
+,Druid,druid-io/druid
+OrientDB,OrientDB,orientechnologies/orientdb
+Mulesoft,Mulesoft,mulesoft/mule
+MySQL,MySQL,
+Hashicorp,Packer,mitchellh/packer
+Hashicorp,Serf,hashicorp/serf
+Hashicorp,Consul,hashicorp/consul
+Hashicorp,Terraform,hashicorp/terraform
+Hashicorp,Vault,hashicorp/vault
+Hashicorp,Nomad,hashicorp/nomad
+Hashicorp,Otto,hashicorp/otto
+Apache,Hbase,apache/hbase
+Apache,Kafka,apache/kafka
+Cloudbees,JenkinsCI,
+OpenTSDB,OpenTSDB,OpenTSDB/opentsdb
+Joyent,SmartOS,joyent/smartos-live
+Sensu,Sensu,sensu/sensu
+,Gradle,gradle/gradle
+,Graphite,
+Apache,Apache Hadoop,apache/hadoop
+Heroku,Heroku,heroku/heroku
+Canonical,Ubuntu,
+Redhat,Jboss,
+Chef,Chef Server,chef/chef
+Puppet Labs,Puppet,puppetlabs/puppet
+SugarCRM,SugarCRM,
+Google,Android,
+Talend,Talend Open Studio,Talend/tsf
+Cyanogen,,wertarbyte/android_vendor_cyanogen
+Pentaho,,pentaho/pentaho-platform
+XenSource,,
+ForgeRock,,ForgeRock/frstack
+Snaplogic,,
+RapidMiner,,rapidminer/rapidminer-studio
+HortonWorks,,
+Sourcefire,,
+Springsource,,spring-projects/spring-framework
+Sonatype,,
+Alfresco,,Alfresco/alfresco-sdk
+Terracotta,,Terracotta-OSS/terracotta-core
+Opscode,,
+Kaltura,,kaltura/server
+Jaspersoft,,
+Mozilla,,
+Apache,CouchDB,apache/couchdb
+Apache,Tomcat,apache/tomcat

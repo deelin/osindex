@@ -1,0 +1,85 @@
+Weave Networks
+Elastic Search
+Kibana
+Logstash
+Saltstack
+Vagrant
+Mesosphere
+mongoDB
+Streamsets
+cockroachDB
+Openstack
+RancherOS
+CircleCI
+Travis-CI
+CoreOS
+Sysdig
+Apache Cassandra
+Bitnami
+Artifactory
+Redis
+Serverless
+Gitlab
+Couchbase
+InfluxDB
+Apache Spark
+Docker
+Linux
+Tensorflow
+Kubernetes
+Ansible
+RethinkDB
+Coffeescript
+Caffe
+Grafana
+PredictionIO
+Postgres
+Gremlins.js
+Node.js
+io.js
+Apache Apex
+Druid
+OrientDB
+Mulesoft
+MySQL
+Hashicorp Packer
+Hashicorp Serf
+Hashicorp Consul
+Hashicorp Terraform
+Hashicorp Vault
+Hashicorp Nomad
+Hashicorp Otto
+Hbase
+Kafka
+JenkinsCI
+OpenTSDB
+SmartOS
+Sensu
+Gradle
+Graphite
+Hadoop
+Heroku
+Ubuntu
+Jboss
+Chef Server
+Puppet
+SugarCRM
+Android
+Talend Open Studio
+Cyanogen
+Pentaho
+XenSource
+ForgeRock
+Snaplogic
+RapidMiner
+Sourcefire
+Springsource
+Sonatype
+Alfresco
+Terracotta
+Opscode
+Kaltura
+Jaspersoft
+Mozilla
+CouchDB
+Apache Tomcat
