@@ -1,89 +1,85 @@
-Go
 Android
-Reddit
 Linux
 Ubuntu
-Otto
-Mozilla
 MySQL
-Vault
-Weave
+Mozilla
+Apache Tomcat
 Caffe
 Docker
-Cassandra
+Apache Spark
 Puppet
 Druid
-Nomad
-Consul
-Tomcat
 mongoDB
 Kafka
+Hadoop
+Postgres
 Graphite
-Packer
 Terracotta
 Node.js
 Gradle
 Redis
 Vagrant
-Ansible
+Jboss
 Openstack
+Ansible
 Gitlab
 Cyanogen
-RancherOS
-Jboss
 Heroku
+Apache Cassandra
 Alfresco
+RancherOS
+Hashicorp Vault
 Tensorflow
-Sensu
-Pentaho
 Kibana
+Pentaho
+Hbase
+Hashicorp Terraform
+Hashicorp Consul
+Sensu
 Kubernetes
 Logstash
-Hbase
-Apache Spark
-Serf
-Terraform
 Elastic Search
-CoreOS
 Bitnami
-HortonWorks
-Coffeescript
 Grafana
 SugarCRM
+CoreOS
 Mulesoft
+Coffeescript
 Couchbase
-CouchDB
-Apache Hadoop
-RethinkDB
 Artifactory
+Apache Apex
+Hashicorp Packer
+CouchDB
 InfluxDB
 Jaspersoft
-Serverless
-RapidMiner
+RethinkDB
 Saltstack
-Mesosphere
+Hashicorp Nomad
+Serverless
 Sourcefire
-CircleCI
+Mesosphere
+RapidMiner
 Kaltura
-OrientDB
+CircleCI
 Chef Server
 Sonatype
-Talend Open Studio
-Opscode
-Snaplogic
+Hashicorp Otto
+OrientDB
 ForgeRock
+Talend Open Studio
+Snaplogic
 OpenTSDB
 SmartOS
-cockroachDB
-Travis-CI
 Sysdig
-PredictionIO
-Postgrest
-io.js
-Streamsets
-Apache Apex
-XenSource
-Springsource
-metasploit-framework
-Gremlins.js
+Opscode
 JenkinsCI
+Hashicorp Serf
+Springsource
+Travis-CI
+io.js
+cockroachDB
+Streamsets
+PredictionIO
+XenSource
+Gremlins.js
+Weave Networks

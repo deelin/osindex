@@ -1,0 +1,85 @@
+Weave Networks,https://github.com/weaveworks/weave
+Elastic Search,https://github.com/elastic/elasticsearch
+Kibana,https://github.com/elastic/kibana
+Logstash,https://github.com/elastic/logstash
+Saltstack,https://github.com/saltstack/salt
+Vagrant,https://github.com/mitchellh/vagrant
+Mesosphere,
+mongoDB,https://github.com/mongodb/mongo
+Streamsets,https://github.com/streamsets/datacollector
+cockroachDB,https://github.com/cockroachdb/cockroach
+Openstack,https://github.com/openstack/nova
+RancherOS,
+CircleCI,
+Travis-CI,https://github.com/travis-ci/travis-ci
+CoreOS,
+Sysdig,https://github.com/draios/sysdig
+Apache Cassandra,https://github.com/apache/cassandra
+Bitnami,
+Artifactory,
+Redis,https://github.com/antirez/redis
+Serverless,https://github.com/serverless/serverless
+Gitlab,
+Couchbase,
+InfluxDB,https://github.com/influxdata/influxdb
+Apache Spark,https://github.com/apache/incubator-predictionio
+Docker,https://github.com/docker/docker
+Linux,https://github.com/torvalds/linux
+Tensorflow,https://github.com/tensorflow/tensorflow
+Kubernetes,https://github.com/kubernetes/kubernetes
+Ansible,https://github.com/ansible/ansible
+RethinkDB,https://github.com/rethinkdb/rethinkdb
+Coffeescript,https://github.com/jashkenas/coffeescript
+Caffe,https://github.com/BVLC/caffe
+Grafana,https://github.com/grafana/grafana
+PredictionIO,https://github.com/apache/incubator-predictionio
+Postgres,https://github.com/begriffs/postgrest
+Gremlins.js,
+Node.js,https://github.com/nodejs/node-v0.x-archive
+io.js,
+Apache Apex,https://github.com/apache/apex-core
+Druid,https://github.com/druid-io/druid
+OrientDB,https://github.com/orientechnologies/orientdb
+Mulesoft,https://github.com/mulesoft/mule
+MySQL,
+Packer,https://github.com/mitchellh/packer
+Hashicorp Serf,https://github.com/hashicorp/serf
+Hashicorp Consul,https://github.com/hashicorp/consul
+Hashicorp Terraform,https://github.com/hashicorp/terraform
+Hashicorp Vault,https://github.com/hashicorp/vault
+Hashicorp Nomad,https://github.com/hashicorp/nomad
+Hashicorp Otto,https://github.com/hashicorp/otto
+Hbase,https://github.com/apache/incubator-predictionio
+Kafka,https://github.com/apache/kafka
+JenkinsCI,
+OpenTSDB,https://github.com/OpenTSDB/opentsdb
+SmartOS,https://github.com/joyent/smartos-live
+Sensu,https://github.com/sensu/sensu
+Gradle,https://github.com/gradle/gradle
+Graphite,
+Hadoop,https://github.com/apache/hadoop
+Heroku,https://github.com/heroku/heroku
+Ubuntu,
+Jboss,
+Chef Server,https://github.com/chef/chef
+Puppet,https://github.com/puppetlabs/puppet
+SugarCRM,
+Android,
+Talend Open Studio,https://github.com/Talend/tsf
+Cyanogen,https://github.com/wertarbyte/android_vendor_cyanogen
+Pentaho,https://github.com/pentaho/pentaho-platform
+XenSource,
+ForgeRock,https://github.com/ForgeRock/frstack
+Snaplogic,
+RapidMiner,https://github.com/rapidminer/rapidminer-5
+Sourcefire,
+Springsource,https://github.com/spring-projects/spring-framework
+Sonatype,
+Alfresco,https://github.com/Alfresco/alfresco-sdk
+Terracotta,https://github.com/Terracotta-OSS/terracotta-core
+Opscode,
+Kaltura,https://github.com/kaltura/platform-install-packages
+Jaspersoft,
+Mozilla,
+CouchDB,https://github.com/apache/couchdb
+Apache Tomcat,https://github.com/apache/tomcat
