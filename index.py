@@ -61,7 +61,7 @@ def index_kw(kw_file, out_file=OUT_FILE):
 
     kws = format_kw(kw_file)
     # sorted_kws = sorting.merge_sort([kw[0] for kw in kws])
-    #sorted_kws = []
+    sorted_kws = []
     # with open(os.path.join('/', 'Users', 'dlin', 'code', 'osindex', 'sorted.txt'), 'r') as f:
     #     sorted_kws = f.read()
     # sorted_kws = sorted_kws.split('\n')

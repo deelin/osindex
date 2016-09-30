@@ -153,14 +153,15 @@ def scale_score(k1, k2, score, correction_dict):
             v2 = v2 * correction_factor
     return score * v2 / v1
 
-def scoring():
+SORTED_FILE = os.path.join('/', 'Users', 'dlin', 'code', 'osindex', 'sorted.txt')
+def scoring(sorted_file=SORTED_FILE):
     correction_dict = {}
     correction_dict["apache"] = get_error_factor('hbase', 'apache')
     correction_dict["hashicorp"] = get_error_factor('terraform', 'hashicorp')
     correction_dict["olap"] = get_error_factor('druid', 'olap')
     correction_dict["cloud"] = get_error_factor('terracotta', 'cloud')
     sorted_kws = []
-    with open(os.path.join('/', 'Users', 'dlin', 'code', 'osindex', 'sorted.txt'), 'r') as f:
+    with open(sorted_file, 'r') as f:
         sorted_kws = f.read()
     sorted_kws = sorted_kws.split('\n')
     scores = {}
