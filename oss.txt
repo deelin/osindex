@@ -15,7 +15,6 @@ Travis-CI
 CoreOS
 Sysdig
 Apache Cassandra
-Bitnami
 Artifactory
 Redis
 Serverless
@@ -48,7 +47,6 @@ Hashicorp Consul
 Hashicorp Terraform
 Hashicorp Vault
 Hashicorp Nomad
-Hashicorp Otto
 Hbase
 Kafka
 JenkinsCI
@@ -64,7 +62,6 @@ Jboss
 Chef Server
 Puppet
 SugarCRM
-Android
 Talend Open Studio
 Cyanogen
 Pentaho
@@ -83,3 +80,9 @@ Jaspersoft
 Mozilla
 CouchDB
 Apache Tomcat
+Jenkins
+Drupal
+WordPress
+Telegraf
+Chronograf
+Kapacitor

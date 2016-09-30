@@ -15,7 +15,6 @@ Travis-CI,https://github.com/travis-ci/travis-ci
 CoreOS,
 Sysdig,https://github.com/draios/sysdig
 Apache Cassandra,https://github.com/apache/cassandra
-Bitnami,
 Artifactory,
 Redis,https://github.com/antirez/redis
 Serverless,https://github.com/serverless/serverless
@@ -48,7 +47,6 @@ Hashicorp Consul,https://github.com/hashicorp/consul
 Hashicorp Terraform,https://github.com/hashicorp/terraform
 Hashicorp Vault,https://github.com/hashicorp/vault
 Hashicorp Nomad,https://github.com/hashicorp/nomad
-Hashicorp Otto,https://github.com/hashicorp/otto
 Hbase,https://github.com/apache/incubator-predictionio
 Kafka,https://github.com/apache/kafka
 JenkinsCI,
@@ -64,7 +62,6 @@ Jboss,
 Chef Server,https://github.com/chef/chef
 Puppet,https://github.com/puppetlabs/puppet
 SugarCRM,
-Android,
 Talend Open Studio,https://github.com/Talend/tsf
 Cyanogen,https://github.com/wertarbyte/android_vendor_cyanogen
 Pentaho,https://github.com/pentaho/pentaho-platform
@@ -83,3 +80,9 @@ Jaspersoft,
 Mozilla,
 CouchDB,https://github.com/apache/couchdb
 Apache Tomcat,https://github.com/apache/tomcat
+Jenkins,https://github.com/jenkinsci/jenkins
+Drupal,https://github.com/drupal/drupal
+WordPress,https://github.com/WordPress/WordPress
+Telegraf,https://github.com/influxdata/telegraf
+Chronograf,
+Kapacitor,https://github.com/influxdata/kapacitor
