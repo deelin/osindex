@@ -37,7 +37,7 @@ Gremlins.js,
 Node.js,https://github.com/nodejs/node-v0.x-archive
 io.js,
 Apache Apex,https://github.com/apache/apex-core
-Druid,https://github.com/druid-io/druid
+OLAP Druid,https://github.com/druid-io/druid
 OrientDB,https://github.com/orientechnologies/orientdb
 Mulesoft,https://github.com/mulesoft/mule
 MySQL,
@@ -54,7 +54,7 @@ OpenTSDB,https://github.com/OpenTSDB/opentsdb
 SmartOS,https://github.com/joyent/smartos-live
 Sensu,https://github.com/sensu/sensu
 Gradle,https://github.com/gradle/gradle
-Graphite,
+Cloud Graphite,
 Hadoop,https://github.com/apache/hadoop
 Heroku,https://github.com/heroku/heroku
 Ubuntu,
@@ -73,7 +73,7 @@ Sourcefire,
 Springsource,https://github.com/spring-projects/spring-framework
 Sonatype,
 Alfresco,https://github.com/Alfresco/alfresco-sdk
-Terracotta,https://github.com/Terracotta-OSS/terracotta-core
+Cloud Terracotta,https://github.com/Terracotta-OSS/terracotta-core
 Opscode,
 Kaltura,https://github.com/kaltura/platform-install-packages
 Jaspersoft,

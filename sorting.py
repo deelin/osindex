@@ -89,39 +89,40 @@ def merge_sort(seq, correction_dict={}):
     if len(seq) == 1:
         return seq
     else:
-        #recursion: break sequence down into chunks of 1
         mid = len(seq)/2
         left = merge_sort(seq[:mid], correction_dict)
         right = merge_sort(seq[mid:], correction_dict)
 
-        i, j, k = 0, 0, 0 #i= left counter, j= right counter, k= master counter
+        i, j, k = 0, 0, 0
 
-        #run until left or right is out
         while i < len(left) and j < len(right):
-            #if current left val is < current right val; assign to master list
             if compare(left[i], right[j], correction_dict) <= 0:
                 seq[k] = left[i]
-                i += 1; k += 1
-            #else assign right to master
+                i += 1
+                k += 1
             else:
                 seq[k] = right[j]
-                j += 1; k += 1
+                j += 1
+                k += 1
 
-        #handle remaining items in remaining list
         remaining = left if i < j else right
         r = i if remaining == left else j
 
         while r < len(remaining):
             seq[k] = remaining[r]
-            r += 1; k += 1
+            r += 1
+            k += 1
 
         return seq
+
 
 def sort(kws):
     correction_dict = {}
     correction_dict["apache"] = get_error_factor('hbase', 'apache')
     correction_dict["hashicorp"] = get_error_factor('terraform', 'hashicorp')
-    sorted =  merge_sort(kws, correction_dict)
+    correction_dict["olap"] = get_error_factor('druid', 'olap')
+    correction_dict["cloud"] = get_error_factor('terracotta', 'cloud')
+    sorted = merge_sort(kws, correction_dict)
     with open('x_sorted.txt', 'a') as f:
         for kw in sorted:
             f.write(kw)
@@ -130,7 +131,7 @@ def sort(kws):
 
 def scale_score(k1, k2, score, correction_dict):
     """
-    Takes a score and scales it down 
+    Takes a score and scales it down
     """
     paths = []
     while len(paths) != 2:
@@ -156,6 +157,8 @@ def scoring():
     correction_dict = {}
     correction_dict["apache"] = get_error_factor('hbase', 'apache')
     correction_dict["hashicorp"] = get_error_factor('terraform', 'hashicorp')
+    correction_dict["olap"] = get_error_factor('druid', 'olap')
+    correction_dict["cloud"] = get_error_factor('terracotta', 'cloud')
     sorted_kws = []
     with open(os.path.join('/', 'Users', 'dlin', 'code', 'osindex', 'sorted.txt'), 'r') as f:
         sorted_kws = f.read()
@@ -173,4 +176,3 @@ def scoring():
         scores[second] = curr_score
         first = second
     return scores
-

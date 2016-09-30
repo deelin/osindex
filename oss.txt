@@ -37,7 +37,7 @@ Gremlins.js
 Node.js
 io.js
 Apache Apex
-Druid
+OLAP Druid
 OrientDB
 Mulesoft
 MySQL
@@ -54,7 +54,7 @@ OpenTSDB
 SmartOS
 Sensu
 Gradle
-Graphite
+Cloud Graphite
 Hadoop
 Heroku
 Ubuntu
@@ -73,7 +73,7 @@ Sourcefire
 Springsource
 Sonatype
 Alfresco
-Terracotta
+Cloud Terracotta
 Opscode
 Kaltura
 Jaspersoft

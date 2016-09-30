@@ -1,11 +1,32 @@
 #!/usr/bin/env python
-from datetime import datetime
 import json
 import os
 import re
-import requests
 import time
+from datetime import datetime
+
+import requests
+
 import sorting
+
+
+class Getter(object):
+
+    def __init__(self):
+        pass
+
+class IndeedGetter(Getter):
+    pass
+
+class SimplyHiredGetter(Getter):
+    pass
+
+class GithubGetter(Getter):
+    pass
+
+class StackOverflowGetter(Getter):
+    pass
+
 
 def format_kw(kw_file):
     kws = []
@@ -32,17 +53,18 @@ def format_kw(kw_file):
     return kws
 
 
-def index_kw(kw_file):
+OUT_FILE = os.path.join('/', 'Users', 'dlin', "index-" +
+                        datetime.now().isoformat().split('T')[0] + '.csv')
+def index_kw(kw_file, out_file=OUT_FILE):
     SEPARATOR = "|"
-    out_file = os.path.join('/', 'Users', 'dlin', "index-" + datetime.now().isoformat().split('T')[0] + '.csv')
     headers = {"Accept": "application/vnd.github.v3.text-match+json"}
 
     kws = format_kw(kw_file)
-    #sorted_kws = sorting.merge_sort([kw[0] for kw in kws])
+    # sorted_kws = sorting.merge_sort([kw[0] for kw in kws])
     #sorted_kws = []
-    with open(os.path.join('/', 'Users', 'dlin', 'code', 'osindex', 'sorted.txt'), 'r') as f:
-        sorted_kws = f.read()
-    sorted_kws = sorted_kws.split('\n')
+    # with open(os.path.join('/', 'Users', 'dlin', 'code', 'osindex', 'sorted.txt'), 'r') as f:
+    #     sorted_kws = f.read()
+    # sorted_kws = sorted_kws.split('\n')
     with open(out_file, 'a') as f:
         for pair in kws:
             time.sleep(60)
@@ -64,7 +86,7 @@ def index_kw(kw_file):
             indeed_resp = requests.get(indeed)
             indeed_total_index = indeed_resp.text.find('<div id="searchCount')
             if indeed_total_index > 0:
-                indeed_total_str = indeed_resp.text[indeed_total_index:indeed_total_index+100]
+                indeed_total_str = indeed_resp.text[indeed_total_index:indeed_total_index + 100]
                 indeed_rx = re.search('Jobs [0-9,]+ to [0-9,]+ of ([0-9,]+)', indeed_total_str)
                 indeed_job_count = int(''.join(indeed_rx.groups()[0].split(',')))
                 fields.append(indeed_job_count)
@@ -75,7 +97,7 @@ def index_kw(kw_file):
             sh_resp = requests.get(simply_hired)
             sh_total_index = sh_resp.text.find('<div class="showing">')
             if sh_total_index > 0:
-                sh_total_str = sh_resp.text[sh_total_index:sh_total_index+100]
+                sh_total_str = sh_resp.text[sh_total_index:sh_total_index + 100]
                 sh_rx = re.search('[0-9,-]+ of ([0-9,]+)', sh_total_str)
                 sh_job_count = int(''.join(sh_rx.groups()[0].split(',')))
                 fields.append(sh_job_count)
@@ -87,11 +109,11 @@ def index_kw(kw_file):
             time.sleep(2)
             so_total_index = so_resp.text.find('<p>questions tagged</p>')
             if so_total_index > 0:
-                so_total_str = so_resp.text[so_total_index-50:so_total_index]
+                so_total_str = so_resp.text[so_total_index - 50:so_total_index]
                 so_rx = re.search('summarycount.*>([0-9,]+)', so_total_str)
             else:
                 so_total_index = so_resp.text.find('<span class="results-label">results</span>')
-                so_total_str = so_resp.text[so_total_index-100:so_total_index]
+                so_total_str = so_resp.text[so_total_index - 100:so_total_index]
                 so_rx = re.search('\r\n\s+([0-9,]+)', so_total_str)
             if so_rx:
                 so_question_count = int(''.join(so_rx.groups()[0].split(',')))
@@ -101,7 +123,8 @@ def index_kw(kw_file):
 
             if pair[1]:
                 # Github available, check github for stars etc.
-                url = "https://api.github.com/search/repositories?q=user:%s+%s&stars:>1&sort=stars&order=desc" % pair[1:]
+                url = "https://api.github.com/search/repositories?q=user:%s+%s&stars:>1&sort=stars&order=desc" % pair[
+                    1:]
                 x = requests.get(url, headers=headers)
                 page = json.loads(x.text)
                 if 'items' not in page:
@@ -118,15 +141,13 @@ def index_kw(kw_file):
                     url = item['html_url']
                     fields.append(url)
 
-
             line = SEPARATOR.join([unicode(x) for x in fields]).encode('utf-8')
             print "Writing " + line
             f.write(line)
             f.write('\n')
-                
 
 
-#def index():
+# def index():
 #    SEPARATOR = "|"
 #    out_file = os.path.join('/', 'Users', 'dlin', "index-" + datetime.now().isoformat().split('T')[0] + '.csv')
 #    headers = {"Accept": "application/vnd.github.v3.text-match+json"}
@@ -221,4 +242,4 @@ def index_kw(kw_file):
 #
 #                f.write(SEPARATOR.join([unicode(x) for x in fields]).encode('utf-8'))
 #                f.write('\n')
-#                
+#
