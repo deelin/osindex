@@ -95,7 +95,8 @@ def get_error_factor(kw, specifier):
 def correct_values(key, value, correction_dict):
     if key in ERROR_FACTOR_MAPPING:
         error_factor = correction_dict[ERROR_FACTOR_MAPPING[key]]
-        return value * error_factor
+        if error_factor:
+            return value * error_factor
     return value
 
 
