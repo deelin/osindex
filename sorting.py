@@ -71,7 +71,7 @@ def get_trend_comparison(k1, k2):
         html = driver.page_source
         driver.quit()
         if html.find('Not enough search volume to show results.') >= 0:
-            return 0
+            return 0, 0
         soup = BeautifulSoup(html, 'html.parser')
         paths = filter(lambda x: x if len(str(x)) > 500 else None, soup.find_all('path'))
         if len(paths) != 2:
