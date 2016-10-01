@@ -57,21 +57,19 @@ def get_trend_comparison(k1, k2):
     print "Comparing %s and %s" % (k1, k2)
     kws = [k1, k2]
 
-    driver = webdriver.Remote(
-        command_executor='http://%s:%s@hub.browserstack.com:80/wd/hub' % (BROWSER_STACK_USERNAME,
-                                                                          BROWSER_STACK_ACCESS_KEY),
-        desired_capabilities=DESIRED_CAP)
-    driver.get(BASE_URL % ','.join(kws))
-
-    time.sleep(2)
-
-    html = driver.page_source
-    driver.quit()
-
     # Fetch "paths" from html. Last value of the series of numbers is the ratio
     paths = []
     while len(paths) != 2:
         time.sleep(30)
+
+        driver = webdriver.Remote(
+            command_executor='http://%s:%s@hub.browserstack.com:80/wd/hub' % (BROWSER_STACK_USERNAME,
+                                                                              BROWSER_STACK_ACCESS_KEY),
+            desired_capabilities=DESIRED_CAP)
+        driver.get(BASE_URL % ','.join(kws))
+        time.sleep(2)
+        html = driver.page_source
+        driver.quit()
         if html.find('Not enough search volume to show results.') >= 0:
             return 0
         soup = BeautifulSoup(html, 'html.parser')
