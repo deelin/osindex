@@ -4,24 +4,25 @@ Kibana
 Logstash
 Saltstack
 Vagrant
-Mesosphere
+Mesos
+Marathon
 mongoDB
 Streamsets
 cockroachDB
 Openstack
 RancherOS
 CircleCI
-Travis-CI
+Travis
 CoreOS
 Sysdig
-Apache Cassandra
+Cassandra
 Artifactory
 Redis
 Serverless
 Gitlab
 Couchbase
 InfluxDB
-Apache Spark
+Spark
 Docker
 Linux
 Tensorflow
@@ -36,17 +37,17 @@ Postgres
 Gremlins.js
 Node.js
 io.js
-Apache Apex
+Apex
 OLAP Druid
 OrientDB
 Mulesoft
 MySQL
-Hashicorp Packer
-Hashicorp Serf
-Hashicorp Consul
-Hashicorp Terraform
-Hashicorp Vault
-Hashicorp Nomad
+Packer
+Serf
+Consul
+Terraform
+Vault
+Nomad
 Hbase
 Kafka
 JenkinsCI
@@ -54,12 +55,12 @@ OpenTSDB
 SmartOS
 Sensu
 Gradle
-Cloud Graphite
+Graphite
 Hadoop
 Heroku
 Ubuntu
 Jboss
-Chef Server
+Chef
 Puppet
 SugarCRM
 Talend Open Studio
@@ -73,16 +74,17 @@ Sourcefire
 Springsource
 Sonatype
 Alfresco
-Cloud Terracotta
+Terracotta
 Opscode
 Kaltura
 Jaspersoft
 Mozilla
 CouchDB
-Apache Tomcat
+Tomcat
 Jenkins
 Drupal
 WordPress
 Telegraf
 Chronograf
 Kapacitor
+Marathon

@@ -4,24 +4,24 @@ Kibana,https://github.com/elastic/kibana
 Logstash,https://github.com/elastic/logstash
 Saltstack,https://github.com/saltstack/salt
 Vagrant,https://github.com/mitchellh/vagrant
-Mesosphere,
+Mesos,https://github.com/apache/mesos
 mongoDB,https://github.com/mongodb/mongo
 Streamsets,https://github.com/streamsets/datacollector
 cockroachDB,https://github.com/cockroachdb/cockroach
 Openstack,https://github.com/openstack/nova
 RancherOS,
 CircleCI,
-Travis-CI,https://github.com/travis-ci/travis-ci
+Travis,https://github.com/travis-ci/travis-ci
 CoreOS,
 Sysdig,https://github.com/draios/sysdig
-Apache Cassandra,https://github.com/apache/cassandra
+Cassandra,https://github.com/apache/cassandra
 Artifactory,
 Redis,https://github.com/antirez/redis
 Serverless,https://github.com/serverless/serverless
 Gitlab,
 Couchbase,
 InfluxDB,https://github.com/influxdata/influxdb
-Apache Spark,https://github.com/apache/incubator-predictionio
+Spark,https://github.com/apache/incubator-predictionio
 Docker,https://github.com/docker/docker
 Linux,https://github.com/torvalds/linux
 Tensorflow,https://github.com/tensorflow/tensorflow
@@ -36,17 +36,17 @@ Postgres,https://github.com/begriffs/postgrest
 Gremlins.js,
 Node.js,https://github.com/nodejs/node-v0.x-archive
 io.js,
-Apache Apex,https://github.com/apache/apex-core
+Apex,https://github.com/apache/apex-core
 OLAP Druid,https://github.com/druid-io/druid
 OrientDB,https://github.com/orientechnologies/orientdb
 Mulesoft,https://github.com/mulesoft/mule
 MySQL,
 Packer,https://github.com/mitchellh/packer
-Hashicorp Serf,https://github.com/hashicorp/serf
-Hashicorp Consul,https://github.com/hashicorp/consul
-Hashicorp Terraform,https://github.com/hashicorp/terraform
-Hashicorp Vault,https://github.com/hashicorp/vault
-Hashicorp Nomad,https://github.com/hashicorp/nomad
+Serf,https://github.com/hashicorp/serf
+Consul,https://github.com/hashicorp/consul
+Terraform,https://github.com/hashicorp/terraform
+Vault,https://github.com/hashicorp/vault
+Nomad,https://github.com/hashicorp/nomad
 Hbase,https://github.com/apache/incubator-predictionio
 Kafka,https://github.com/apache/kafka
 JenkinsCI,
@@ -54,12 +54,12 @@ OpenTSDB,https://github.com/OpenTSDB/opentsdb
 SmartOS,https://github.com/joyent/smartos-live
 Sensu,https://github.com/sensu/sensu
 Gradle,https://github.com/gradle/gradle
-Cloud Graphite,
+Graphite,https://github.com/graphite-project/graphite-web
 Hadoop,https://github.com/apache/hadoop
 Heroku,https://github.com/heroku/heroku
 Ubuntu,
 Jboss,
-Chef Server,https://github.com/chef/chef
+Chef,https://github.com/chef/chef
 Puppet,https://github.com/puppetlabs/puppet
 SugarCRM,
 Talend Open Studio,https://github.com/Talend/tsf
@@ -73,16 +73,17 @@ Sourcefire,
 Springsource,https://github.com/spring-projects/spring-framework
 Sonatype,
 Alfresco,https://github.com/Alfresco/alfresco-sdk
-Cloud Terracotta,https://github.com/Terracotta-OSS/terracotta-core
+Terracotta,https://github.com/Terracotta-OSS/terracotta-core
 Opscode,
 Kaltura,https://github.com/kaltura/platform-install-packages
 Jaspersoft,
 Mozilla,
 CouchDB,https://github.com/apache/couchdb
-Apache Tomcat,https://github.com/apache/tomcat
+Tomcat,https://github.com/apache/tomcat
 Jenkins,https://github.com/jenkinsci/jenkins
 Drupal,https://github.com/drupal/drupal
 WordPress,https://github.com/WordPress/WordPress
 Telegraf,https://github.com/influxdata/telegraf
 Chronograf,
 Kapacitor,https://github.com/influxdata/kapacitor
+Marathon,https://github.com/mesosphere/marathon
