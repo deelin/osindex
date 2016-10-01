@@ -95,7 +95,7 @@ def index_kw(kw_file, out_file=OUT_FILE):
 
             # SIMPLYHIRED
             sh_resp = requests.get(simply_hired)
-            sh_total_index = sh_resp.text.find('<div class="showing">')
+            sh_total_index = sh_resp.text.find('<div style="float:right">Showing ')
             if sh_total_index > 0:
                 sh_total_str = sh_resp.text[sh_total_index:sh_total_index + 100]
                 sh_rx = re.search('[0-9,-]+ of ([0-9,]+)', sh_total_str)

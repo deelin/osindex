@@ -19,7 +19,7 @@ X   Jobs Sites
 BROWSER_STACK_USERNAME = 'dennislin1'
 BROWSER_STACK_ACCESS_KEY = 'tbZJb61pJZ2S6BFy8bB4'
 BASE_URL = "http://www.google.com/trends/fetchComponent?hl=en-US&q=%s&cid=TIMESERIES_GRAPH_0&export=5&w=500&h=300"
-DESIRED_CAP = {'os': 'ANY', 'browser': 'chrome'}
+DESIRED_CAP = {'os': 'ANY', 'browser': 'ANY'}
 ERROR_FACTOR_MAPPING = {
     'Caffe': ('Deep Learning', ''),
     'Graphite': ('Whisper', ''),
@@ -71,12 +71,15 @@ def get_trend_comparison(k1, k2):
     # Fetch "paths" from html. Last value of the series of numbers is the ratio
     paths = []
     while len(paths) != 2:
+        time.sleep(30)
         if html.find('Not enough search volume to show results.') >= 0:
             return 0
         soup = BeautifulSoup(html, 'html.parser')
         paths = filter(lambda x: x if len(str(x)) > 500 else None, soup.find_all('path'))
         if len(paths) != 2:
             print "FAILED! %s %s" % (k1, k2)
+            print "Sleeping for a bit"
+            time.sleep(15)
 
     v1 = 200 - float(paths[0]['d'].split(',')[-1])
     v2 = 200 - float(paths[1]['d'].split(',')[-1])
