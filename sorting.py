@@ -22,6 +22,7 @@ BASE_URL = "http://www.google.com/trends/fetchComponent?hl=en-US&q=%s&cid=TIMESE
 DESIRED_CAP = {'os': 'ANY', 'browser': 'ANY'}
 ERROR_FACTOR_MAPPING = {
     'Caffe': ('Deep Learning', ''),
+    'Druid': ('OLAP', ''),
     'Graphite': ('Whisper', ''),
     'Marathon': ('Mesosphere', ''),
     'Travis': ('Continuous Integration', ''),
@@ -90,7 +91,8 @@ def get_trend_comparison(k1, k2):
 def get_error_factor(kw, specifier):
     v1, v2 = get_trend_comparison(kw, specifier + ' ' + kw)
     error_factor = v1 / v2
-    print "Error factor between %s and %s is %f" % (kw, specifier+' '+kw, error_factor)
+    print "Error factor between %s and %s is %f" % (kw, specifier + ' ' + kw, error_factor)
+    return error_factor
 
 
 def correct_values(key, value, correction_dict):
@@ -106,10 +108,8 @@ def correct_keys(key, correction_dict):
     # Ex: Caffe should be compared as Caffe Deep Learning
     if key in ERROR_FACTOR_MAPPING:
         tup = ERROR_FACTOR_MAPPING[key]
-        if not tup[1]:
-            return key + " " + tup[0]
+        return key + " " + tup[0]
     return key
-
 
 
 def compare(k1, k2, correction_dict={}):

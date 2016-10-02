@@ -38,7 +38,7 @@ Gremlins.js
 Node.js
 io.js
 Apex
-OLAP Druid
+Druid
 OrientDB
 Mulesoft
 MySQL
