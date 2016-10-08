@@ -13,7 +13,6 @@ Openstack
 Rancher
 CircleCI
 Travis
-CoreOS
 Sysdig
 Cassandra
 Artifactory

@@ -120,7 +120,7 @@ def correct_values(key, value, correction_dict):
     return value
 
 
-def correct_keys(key, correction_dict):
+def correct_keys(key):
     # Make sure that each key shouldn't be compared as something else
     # Ex: Caffe should be compared as Caffe Deep Learning
     if key in ERROR_FACTOR_MAPPING:
@@ -130,8 +130,8 @@ def correct_keys(key, correction_dict):
 
 
 def compare(k1, k2, correction_dict={}):
-    k1 = correct_keys(k1, correction_dict)
-    k2 = correct_keys(k2, correction_dict)
+    k1 = correct_keys(k1)
+    k2 = correct_keys(k2)
     v1, v2 = get_trend_comparison(k1, k2)
     v1 = correct_values(k1, v1, correction_dict)
     v2 = correct_values(k2, v2, correction_dict)

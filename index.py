@@ -7,7 +7,7 @@ from datetime import datetime
 
 import requests
 
-import sorting
+from sorting import merge_sort, correct_keys
 
 
 class Getter(object):
@@ -60,18 +60,16 @@ def index_kw(kw_file, out_file=OUT_FILE):
     headers = {"Accept": "application/vnd.github.v3.text-match+json"}
 
     kws = format_kw(kw_file)
-    # sorted_kws = sorting.merge_sort([kw[0] for kw in kws])
-    sorted_kws = []
-    # with open(os.path.join('/', 'Users', 'dlin', 'code', 'osindex', 'sorted.txt'), 'r') as f:
-    #     sorted_kws = f.read()
-    # sorted_kws = sorted_kws.split('\n')
+    sorted_kws = merge_sort([kw[0] for kw in kws])
+    with open('/tmp/sorted.txt', 'w') as f:
+        f.write('\n'.join(sorted_kws))
     with open(out_file, 'a') as f:
         for pair in kws:
             time.sleep(60)
 
             fields = []
-            name = pair[0]
-            print "starting for " + name
+            name = correct_keys(pair[0])
+            print "Starting for %s which was corrected to %s" % (pair[0], name)
             fields = [name]
             if name in sorted_kws:
                 fields.append(str(sorted_kws.index(name) + 1))
