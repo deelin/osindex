@@ -7,7 +7,7 @@ from datetime import datetime
 
 import requests
 
-from sorting import merge_sort, correct_keys
+from sorting import sort, correct_keys
 
 
 class Getter(object):
@@ -60,7 +60,7 @@ def index_kw(kw_file, out_file=OUT_FILE):
     headers = {"Accept": "application/vnd.github.v3.text-match+json"}
 
     kws = format_kw(kw_file)
-    sorted_kws = merge_sort([kw[0] for kw in kws])
+    sorted_kws = sort([kw[0] for kw in kws])
     with open('/tmp/sorted.txt', 'w') as f:
         f.write('\n'.join(sorted_kws))
     with open(out_file, 'a') as f:
