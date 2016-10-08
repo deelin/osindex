@@ -10,7 +10,7 @@ mongoDB
 Streamsets
 cockroachDB
 Openstack
-RancherOS
+Rancher
 CircleCI
 Travis
 CoreOS
@@ -50,7 +50,7 @@ Vault
 Nomad
 Hbase
 Kafka
-JenkinsCI
+Jenkins
 OpenTSDB
 SmartOS
 Sensu
@@ -88,3 +88,15 @@ Telegraf
 Chronograf
 Kapacitor
 Marathon
+Nginx
+ETCD
+Flannel
+RKT
+Accumulo
+Flume
+Hive
+Hue
+Pig
+Sentry
+Cloudera Search
+Sqoop

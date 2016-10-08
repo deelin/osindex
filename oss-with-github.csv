@@ -5,14 +5,14 @@ Logstash,https://github.com/elastic/logstash
 Saltstack,https://github.com/saltstack/salt
 Vagrant,https://github.com/mitchellh/vagrant
 Mesos,https://github.com/apache/mesos
+Marathon,https://github.com/mesosphere/marathon
 mongoDB,https://github.com/mongodb/mongo
 Streamsets,https://github.com/streamsets/datacollector
 cockroachDB,https://github.com/cockroachdb/cockroach
 Openstack,https://github.com/openstack/nova
-RancherOS,
+Rancher,https://github.com/rancher/rancher
 CircleCI,
 Travis,https://github.com/travis-ci/travis-ci
-CoreOS,
 Sysdig,https://github.com/draios/sysdig
 Cassandra,https://github.com/apache/cassandra
 Artifactory,
@@ -49,7 +49,7 @@ Vault,https://github.com/hashicorp/vault
 Nomad,https://github.com/hashicorp/nomad
 Hbase,https://github.com/apache/incubator-predictionio
 Kafka,https://github.com/apache/kafka
-JenkinsCI,
+Jenkins,https://github.com/jenkinsci/jenkins
 OpenTSDB,https://github.com/OpenTSDB/opentsdb
 SmartOS,https://github.com/joyent/smartos-live
 Sensu,https://github.com/sensu/sensu
@@ -86,4 +86,15 @@ WordPress,https://github.com/WordPress/WordPress
 Telegraf,https://github.com/influxdata/telegraf
 Chronograf,
 Kapacitor,https://github.com/influxdata/kapacitor
-Marathon,https://github.com/mesosphere/marathon
+Nginx,https://github.com/nginx/nginx
+ETCD,https://github.com/coreos/etcd
+Flannel,https://github.com/coreos/flannel
+RKT,https://github.com/coreos/rkt
+Accumulo,https://github.com/apache/accumulo
+Flume,https://github.com/apache/flume
+Hive,https://github.com/apache/hive
+Hue,https://github.com/cloudera/hue
+Pig,https://github.com/apache/pig
+Sentry,https://github.com/apache/sentry
+Cloudera Search,https://github.com/cloudera/search
+Sqoop,https://github.com/apache/sqoop

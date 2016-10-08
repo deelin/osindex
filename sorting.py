@@ -24,7 +24,10 @@ ERROR_FACTOR_MAPPING = {
     'Caffe': ('Deep Learning', ''),
     'Druid': ('OLAP', ''),
     'Graphite': ('Whisper', ''),
+    'Hue': ('Cloudera', ''),
+    'Jenkins': ('Continuous Integration', ''),
     'Marathon': ('Mesosphere', ''),
+    'Rancher': ('Docker', ''),
     'Travis': ('Continuous Integration', ''),
     'Whisper': ('Database', ''),
 
@@ -33,10 +36,24 @@ ERROR_FACTOR_MAPPING = {
     'Terracotta': ('Server', 'Apache Tomcat'),
 
     # Apache
-    'Apex': ('Apache', 'Mesos'),
-    'Cassandra': ('Apache', 'Mesos'),
-    'Mesos': ('Apache', 'Mesos'),
-    'Tomcat': ('Apache', 'Mesos'),
+    'Accumulo': ('Apache', 'Kafka'),
+    'Apex': ('Apache', 'Kafka'),
+    'Cassandra': ('Apache', 'Kafka'),
+    'Flume': ('Apache', 'Kafka'),
+    'Hive': ('Apache', 'Kafka'),
+    'Impala': ('Apache', 'Kafka'),
+    'Kafka': ('Apache', 'Kafka'),
+    'Mesos': ('Apache', 'Kafka'),
+    'Pig': ('Apache', 'Kafka'),
+    'Sentry': ('Apache', 'Kafka'),
+    'Sqoop': ('Apache', 'Kafka'),
+    'Spark': ('Apache', 'Kafka'),
+    'Tomcat': ('Apache', 'Kafka'),
+
+    # CoreOS
+    'ETCD': ('CoreOS', 'ETCD'),
+    'Flannel': ('CoreOS', 'ETCD'),
+    'RKT': ('CoreOS', 'RKT'),
 
     # Hashicorp
     'Consul': ('Hashicorp', 'Terraform'),
