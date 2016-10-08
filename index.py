@@ -68,16 +68,17 @@ def index_kw(kw_file, out_file=OUT_FILE):
             time.sleep(60)
 
             fields = []
-            name = correct_keys(pair[0])
-            print "Starting for %s which was corrected to %s" % (pair[0], name)
+            name = pair[0]
+            corrected_name = correct_keys(pair[0])
+            print "Starting for %s which was corrected to %s" % (name, corrected_name)
             fields = [name]
             if name in sorted_kws:
                 fields.append(str(sorted_kws.index(name) + 1))
             else:
                 fields.append('???')
 
-            indeed = "http://www.indeed.com/jobs?q=%s&l=" % name
-            simply_hired = "http://www.simplyhired.com/search?q=%s" % name
+            indeed = "http://www.indeed.com/jobs?q=%s&l=" % corrected_name
+            simply_hired = "http://www.simplyhired.com/search?q=%s" % corrected_name
             stack_overflow = "http://stackoverflow.com/search?q=%s" % name
 
             # INDEED
