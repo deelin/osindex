@@ -146,6 +146,8 @@ def scale_score(k1, k2, score, correction_dict):
     """
     Takes a score and scales it down
     """
+    k1 = correct_keys(k1)
+    k2 = correct_keys(k2)
     v1, v2 = get_trend_comparison(k1, k2)
     v1 = correct_values(k1, v1, correction_dict)
     v2 = correct_values(k2, v2, correction_dict)

@@ -73,7 +73,7 @@ def index_kw(kw_file, out_file=OUT_FILE):
             print "Starting for %s which was corrected to %s" % (name, corrected_name)
             fields = [name]
             if name in sorted_kws:
-                fields.append(str(sorted_kws.index(name) + 1))
+                fields.append(str(len(sorted_kws) - sorted_kws.index(name) + 1))
             else:
                 fields.append('???')
 
