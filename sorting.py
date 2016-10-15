@@ -20,6 +20,9 @@ BROWSER_STACK_USERNAME = 'dennislin1'
 BROWSER_STACK_ACCESS_KEY = 'tbZJb61pJZ2S6BFy8bB4'
 BASE_URL = "http://www.google.com/trends/fetchComponent?hl=en-US&q=%s&cid=TIMESERIES_GRAPH_0&export=5&w=500&h=300"
 DESIRED_CAP = {'os': 'ANY', 'browser': 'ANY'}
+
+SERIES_WINDOW = 6 # in months
+
 ERROR_FACTOR_MAPPING = {
     'Caffe': ('Deep Learning', ''),
     'Druid': ('OLAP', ''),
@@ -98,8 +101,14 @@ def get_trend_comparison(k1, k2):
             print "Sleeping for a bit"
             time.sleep(15)
 
-    v1 = 200 - float(paths[0]['d'].split(',')[-1])
-    v2 = 200 - float(paths[1]['d'].split(',')[-1])
+    k1_series = paths[0]['d'].split(',')
+    k1_window = [month.split('L')[0] for month in k1_series[-1 * SERIES_WINDOW:]]
+    v1 = reduce(lambda x, y: float(x) + float(y), k1_window)
+
+    k2_series = paths[1]['d'].split(',')
+    k2_window = [month.split('L')[0] for month in k2_series[-1 * SERIES_WINDOW:]]
+    v2 = reduce(lambda x, y: (200 - float(x)) + (200 - float(y)), k2_window)
+
     print "%s has a value of %f" % (k1, v1)
     print "%s has a value of %f" % (k2, v2)
 
