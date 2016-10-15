@@ -43,6 +43,7 @@ ERROR_FACTOR_MAPPING = {
     'Hive': ('Apache', 'Kafka'),
     'Impala': ('Apache', 'Kafka'),
     'Kafka': ('Apache', 'Kafka'),
+    'Maven': ('Apache', 'Kafka'),
     'Mesos': ('Apache', 'Kafka'),
     'Pig': ('Apache', 'Kafka'),
     'Sentry': ('Apache', 'Kafka'),
@@ -112,14 +113,6 @@ def get_error_factor(kw, specifier):
     return error_factor
 
 
-def correct_values(key, value, correction_dict):
-    if key in ERROR_FACTOR_MAPPING:
-        error_factor = correction_dict[ERROR_FACTOR_MAPPING[key]]
-        if error_factor:
-            return value * error_factor
-    return value
-
-
 def correct_keys(key):
     # Make sure that each key shouldn't be compared as something else
     # Ex: Caffe should be compared as Caffe Deep Learning
@@ -127,6 +120,14 @@ def correct_keys(key):
         tup = ERROR_FACTOR_MAPPING[key]
         return key + " " + tup[0]
     return key
+
+
+def correct_values(key, value, correction_dict):
+    if key in ERROR_FACTOR_MAPPING:
+        error_factor = correction_dict[ERROR_FACTOR_MAPPING[key]]
+        if error_factor:
+            return value * error_factor
+    return value
 
 
 def compare(k1, k2, correction_dict={}):
