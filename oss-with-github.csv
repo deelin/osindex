@@ -57,7 +57,6 @@ Gradle,https://github.com/gradle/gradle
 Graphite,https://github.com/graphite-project/graphite-web
 Hadoop,https://github.com/apache/hadoop
 Heroku,https://github.com/heroku/heroku
-Ubuntu,
 Jboss,
 Chef,https://github.com/chef/chef
 Puppet,https://github.com/puppetlabs/puppet
@@ -98,3 +97,8 @@ Pig,https://github.com/apache/pig
 Sentry,https://github.com/apache/sentry
 Cloudera Search,https://github.com/cloudera/search
 Sqoop,https://github.com/apache/sqoop
+Maven,https://github.com/apache/maven
+Selenium,https://github.com/SeleniumHQ/selenium
+Appium,https://github.com/appium/appium
+Neo4J,https://github.com/neo4j/neo4j
+Impala,https://github.com/cloudera/impala
