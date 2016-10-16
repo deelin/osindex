@@ -57,7 +57,7 @@ ERROR_FACTOR_MAPPING = {
     # CoreOS
     'ETCD': ('CoreOS', 'ETCD'),
     'Flannel': ('CoreOS', 'ETCD'),
-    'RKT': ('CoreOS', 'RKT'),
+    'RKT': ('CoreOS', 'ETCD'),
 
     # Hashicorp
     'Consul': ('Hashicorp', 'Terraform'),
