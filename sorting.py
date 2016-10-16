@@ -103,7 +103,7 @@ def get_trend_comparison(k1, k2):
 
     k1_series = paths[0]['d'].split(',')
     k1_window = [month.split('L')[0] for month in k1_series[-1 * SERIES_WINDOW:]]
-    v1_sum = reduce(lambda x, y: float(x) + float(y), k1_window)
+    v1_sum = reduce(lambda x, y: (200 - float(x)) + (200 - float(y)), k1_window)
     v1 = v1_sum / SERIES_WINDOW
 
     k2_series = paths[1]['d'].split(',')
