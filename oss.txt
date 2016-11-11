@@ -79,7 +79,6 @@ Jaspersoft
 Mozilla
 CouchDB
 Tomcat
-Jenkins
 Drupal
 WordPress
 Telegraf
