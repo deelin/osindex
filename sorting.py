@@ -29,7 +29,7 @@ ERROR_FACTOR_MAPPING = {
     'Graphite': ('Whisper', ''),
     'Hue': ('Cloudera', ''),
     'Jenkins': ('Continuous Integration', ''),
-    'Light Table': ('IDE', 'Eclipse')
+    'Light Table': ('IDE', 'Eclipse'),
     'Lumify': ('Analytics', ''),
     'Marathon': ('Mesosphere', ''),
     'Noms': ('Database', ''),
@@ -106,7 +106,7 @@ def get_trend_comparison(k1, k2):
             time.sleep(15)
 
     k1_series = paths[0]['d'].split(',')
-    k1_window = [month.split('L')[0] for month in k1_series[-1 * int(SERIES_WINDO):]]
+    k1_window = [month.split('L')[0] for month in k1_series[-1 * int(SERIES_WINDOW):]]
     v1_sum = sum(map(lambda x: 200 - float(x), k1_window))
 
     # Minimum number isn't 0, it's 0.5, so correct by subtracting 0.5 * SERIES_WINDOW
@@ -243,7 +243,7 @@ def merge_sort(seq, correction_dict={}):
         else:
             seq[k] = right[j]
             j += 1
-             k += 1
+            k += 1
  
     remaining = left if i < j else right
     r = i if remaining == left else j
