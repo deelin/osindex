@@ -21,7 +21,7 @@ BROWSER_STACK_ACCESS_KEY = 'tbZJb61pJZ2S6BFy8bB4'
 BASE_URL = "http://www.google.com/trends/fetchComponent?hl=en-US&q=%s&cid=TIMESERIES_GRAPH_0&export=5&w=500&h=300"
 DESIRED_CAP = {'os': 'ANY', 'browser': 'ANY'}
 
-SERIES_WINDOW = 6 # in months
+SERIES_WINDOW = 6.0 # in months
 
 ERROR_FACTOR_MAPPING = {
     'Caffe': ('Deep Learning', ''),
@@ -89,8 +89,6 @@ def get_trend_comparison(k1, k2):
     # Fetch "paths" from html. Last value of the series of numbers is the ratio
     paths = []
     while len(paths) != 2:
-        time.sleep(30)
-
         driver = webdriver.Remote(
             command_executor='http://%s:%s@hub.browserstack.com:80/wd/hub' % (BROWSER_STACK_USERNAME,
                                                                               BROWSER_STACK_ACCESS_KEY),
@@ -104,19 +102,28 @@ def get_trend_comparison(k1, k2):
         soup = BeautifulSoup(html, 'html.parser')
         paths = filter(lambda x: x if len(str(x)) > 500 else None, soup.find_all('path'))
         if len(paths) != 2:
-            print "FAILED! %s %s" % (k1, k2)
-            print "Sleeping for a bit"
+            print "FAILED! %s %s. Sleeping for a bit" % (k1, k2)
             time.sleep(15)
 
     k1_series = paths[0]['d'].split(',')
-    k1_window = [month.split('L')[0] for month in k1_series[-1 * SERIES_WINDOW:]]
-    v1_sum = reduce(lambda x, y: (200 - float(x)) + (200 - float(y)), k1_window)
+    k1_window = [month.split('L')[0] for month in k1_series[-1 * int(SERIES_WINDO):]]
+    v1_sum = sum(map(lambda x: 200 - float(x), k1_window))
+
+    # Minimum number isn't 0, it's 0.5, so correct by subtracting 0.5 * SERIES_WINDOW
+    v1_sum -= 0.5 * SERIES_WINDOW
     v1 = v1_sum / SERIES_WINDOW
+    print k1_window
+    print v1_sum
 
     k2_series = paths[1]['d'].split(',')
-    k2_window = [month.split('L')[0] for month in k2_series[-1 * SERIES_WINDOW:]]
-    v2_sum = reduce(lambda x, y: (200 - float(x)) + (200 - float(y)), k2_window)
+    k2_window = [month.split('L')[0] for month in k2_series[-1 * int(SERIES_WINDOW):]]
+    v2_sum = sum(map(lambda x: 200 - float(x), k2_window))
+
+    # Minimum number isn't 0, it's 0.5, so correct by subtracting 0.5 * SERIES_WINDOW
+    v2_sum -= 0.5 * SERIES_WINDOW
     v2 = v2_sum / SERIES_WINDOW
+    print k2_window
+    print v2_sum
 
     print "%s has a value of %f" % (k1, v1)
     print "%s has a value of %f" % (k2, v2)
@@ -126,6 +133,9 @@ def get_trend_comparison(k1, k2):
 
 def get_error_factor(kw, specifier):
     v1, v2 = get_trend_comparison(kw, specifier + ' ' + kw)
+    if not v1 or not v2:
+        # if one or both values are 0
+        return v1 if v1 > v2 else v2
     error_factor = v1 / v2
     print "Error factor between %s and %s is %f" % (kw, specifier + ' ' + kw, error_factor)
     return error_factor
@@ -150,14 +160,20 @@ def correct_values(key, value, correction_dict):
 
 def compare(k1, k2, correction_dict={}):
     corrected_k1 = correct_keys(k1)
+    print "k1 corrected from %s to %s" % (k1, corrected_k1)
     corrected_k2 = correct_keys(k2)
+    print "k2 corrected from %s to %s" % (k2, corrected_k2)
     v1, v2 = get_trend_comparison(corrected_k1, corrected_k2)
     v1 = correct_values(k1, v1, correction_dict)
     v2 = correct_values(k2, v2, correction_dict)
+    print "After  correction: %s - %d || %s - %d" % (k1, v1, k2, v2)
     if v1 < v2:
+        print "%s <<< %s" % (k1, k2)
         return -1
     if v1 == v2:
+        print "%s === %s" % (k1, k2)
         return 0
+    print "%s >>> %s" % (k1, k2)
     return 1
 
 
@@ -168,6 +184,8 @@ def scale_score(k1, k2, score, correction_dict):
     corrected_k1 = correct_keys(k1)
     corrected_k2 = correct_keys(k2)
     v1, v2 = get_trend_comparison(corrected_k1, corrected_k2)
+    v1 = v1 or 1
+    v2 = v2 or 1
     v1 = correct_values(k1, v1, correction_dict)
     v2 = correct_values(k2, v2, correction_dict)
     return score * v2 / v1
@@ -210,32 +228,37 @@ def merge_sort(seq, correction_dict={}):
     """
     if len(seq) == 1:
         return seq
-    else:
-        mid = len(seq)/2
-        left = merge_sort(seq[:mid], correction_dict)
-        right = merge_sort(seq[mid:], correction_dict)
 
-        i, j, k = 0, 0, 0
+    mid = len(seq)/2
+    left = merge_sort(seq[:mid], correction_dict)
+    right = merge_sort(seq[mid:], correction_dict)
 
-        while i < len(left) and j < len(right):
-            if compare(left[i], right[j], correction_dict) <= 0:
-                seq[k] = left[i]
-                i += 1
-                k += 1
-            else:
-                seq[k] = right[j]
-                j += 1
-                k += 1
+    i, j, k = 0, 0, 0
 
-        remaining = left if i < j else right
-        r = i if remaining == left else j
-
-        while r < len(remaining):
-            seq[k] = remaining[r]
-            r += 1
+    while i < len(left) and j < len(right):
+        if compare(left[i], right[j], correction_dict) <= 0:
+            seq[k] = left[i]
+            i += 1
             k += 1
+        else:
+            seq[k] = right[j]
+            j += 1
+             k += 1
+ 
+    remaining = left if i < j else right
+    r = i if remaining == left else j
 
-        return seq
+    print "ADDING REAMINDER TO LIST"
+    print "\tREMAINDER: %s" % str(remaining)
+    print "\tLIST_SO_FAR: %s" % str(seq)
+    print "\tLEFT: %s" % str(left)
+    print "\tRIGHT: %s" % str(right)
+    while r < len(remaining):
+        seq[k] = remaining[r]
+        r += 1
+        k += 1
+
+    return seq
 
 
 def generate_error_dict():
@@ -281,3 +304,27 @@ def scoring(sorted_file=SORTED_FILE):
         scores[second] = curr_score
         first = second
     return scores
+
+
+def scoring2(sorted_kws, correction_dict={}):
+    scores = {}
+    curr_score = 10000
+    first = sorted_kws[0].strip()
+    scores[first] = curr_score
+    for kw in sorted_kws[1:]:
+        second = kw
+        print scores
+        print "Comparing %s and %s" % (first, second)
+        curr_score = scale_score(first, second, curr_score, correction_dict)
+        print "Got a score of %d for %s" % (curr_score, second)
+        scores[second] = curr_score
+        first = second
+    return scores
+
+
+def check_sorted(kws, correction_dict):
+    for i in xrange(len(kws)-1):
+        if compare(kws[i], kws[i+1], correction_dict) < 1:
+            # if k1 is GTE k1, we got a problem
+            print "FAILURE! %s is actually larger than %s" % (kws[i], kws[i+1])
+
