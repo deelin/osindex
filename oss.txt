@@ -101,3 +101,20 @@ Selenium
 Appium
 Neo4J
 Impala
+NPM
+Light Table
+Noms
+Data Torrent RTS
+Lumify
+Cloud Foundry
+OpenShift
+OpenVZ
+Blazegraph
+BlinkDB
+gridgain
+Cloud 9
+OpenNMS
+Nagios
+KVM
+MidoNet
+Xen
