@@ -29,7 +29,10 @@ ERROR_FACTOR_MAPPING = {
     'Graphite': ('Whisper', ''),
     'Hue': ('Cloudera', ''),
     'Jenkins': ('Continuous Integration', ''),
+    'Light Table': ('IDE', 'Eclipse')
+    'Lumify': ('Analytics', ''),
     'Marathon': ('Mesosphere', ''),
+    'Noms': ('Database', ''),
     'Rancher': ('Docker', ''),
     'Travis': ('Continuous Integration', ''),
     'Whisper': ('Database', ''),
@@ -66,6 +69,10 @@ ERROR_FACTOR_MAPPING = {
     'Serf': ('Hashicorp', 'Terraform'),
     'Terraform': ('Hashicorp', 'Terraform'),
     'Vault': ('Hashicorp', 'Terraform'),
+
+    # IDE
+    'Cloud 9': ('IDE', 'IntelliJ'),
+    'Light Table': ('IDE', 'IntelliJ'),
 
     # InfluxDB
     'Kapacitor': ('InfluxDB', 'Kapacitor'),
