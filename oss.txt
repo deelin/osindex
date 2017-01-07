@@ -1,5 +1,5 @@
 Weave Networks
-Elastic Search
+Elasticsearch
 Kibana
 Logstash
 Saltstack
