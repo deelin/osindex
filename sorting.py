@@ -93,7 +93,12 @@ def get_trend_comparison(k1, k2):
             command_executor='http://%s:%s@hub.browserstack.com:80/wd/hub' % (BROWSER_STACK_USERNAME,
                                                                               BROWSER_STACK_ACCESS_KEY),
             desired_capabilities=DESIRED_CAP)
-        driver.get(BASE_URL % ','.join(kws))
+        try:
+            driver.get(BASE_URL % ','.join(kws))
+        except Exception, e:
+            print e
+            continue
+            
         time.sleep(2)
         html = driver.page_source
         driver.quit()
