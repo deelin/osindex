@@ -122,23 +122,21 @@ def index_kw(kw_file, out_file=OUT_FILE):
 
             if pair[1]:
                 # Github available, check github for stars etc.
-                url = "https://api.github.com/search/repositories?q=user:%s+%s&stars:>1&sort=stars&order=desc" % pair[
-                    1:]
+                url = "https://api.github.com/repos/%s/%s" % pair[1:]
                 x = requests.get(url, headers=headers)
                 page = json.loads(x.text)
-                if 'items' not in page:
-                    break
-                items = page['items']
-                if len(items) > 0:
-                    item = items[0]
-                    forks = item['forks_count']
-                    fields.append(forks)
-                    stars = item['stargazers_count']
-                    fields.append(stars)
-                    watchers = item['watchers_count']
-                    fields.append(watchers)
-                    url = item['html_url']
-                    fields.append(url)
+                git_fields = ['network_count', 'stargazers_count', 'subscribers_count', 'html_url']
+                for field in git_fields:
+                    if field not in page:
+                        break
+                forks = item['network_count']
+                fields.append(forks)
+                stars = item['stargazers_count']
+                fields.append(stars)
+                watchers = item['subscribers_count']
+                fields.append(watchers)
+                url = item['html_url']
+                fields.append(url)
 
             line = SEPARATOR.join([unicode(x) for x in fields]).encode('utf-8')
             print "Writing " + line
