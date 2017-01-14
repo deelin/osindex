@@ -54,6 +54,57 @@ def format_kw(kw_file):
 
 
 """
+INDEED
+"""
+def fetch_indeed(search_terms):
+    indeed = "http://www.indeed.com/jobs?q=%s" % ' '.join(search_terms)
+    indeed_resp = requests.get(indeed)
+    indeed_total_index = indeed_resp.text.find('<div id="searchCount')
+    if indeed_total_index > 0:
+        indeed_total_str = indeed_resp.text[indeed_total_index:indeed_total_index + 100]
+        indeed_rx = re.search('Jobs [0-9,]+ to [0-9,]+ of ([0-9,]+)', indeed_total_str)
+        indeed_job_count = int(''.join(indeed_rx.groups()[0].split(',')))
+        return indeed_job_count
+    return 0
+
+
+"""
+SIMPLYHIRED
+"""
+def fetch_simplyhired(search_terms):
+    simply_hired = "http://www.simplyhired.com/search?q=%s" % ' '.join(search_terms)
+    sh_resp = requests.get(simply_hired)
+    sh_total_index = sh_resp.text.find('<div style="float:right">Showing ')
+    if sh_total_index > 0:
+        sh_total_str = sh_resp.text[sh_total_index:sh_total_index + 100]
+        sh_rx = re.search('[0-9,-]+ of ([0-9,]+)', sh_total_str)
+        sh_job_count = int(''.join(sh_rx.groups()[0].split(',')))
+        return sh_job_count
+    return 0
+
+
+"""
+STACKOVERFLOW
+"""
+def fetch_stackoverflow(search_terms):
+    stack_overflow = "http://stackoverflow.com/search?q=%s" % ' '.join(search_terms)
+    so_resp = requests.get(stack_overflow)
+    time.sleep(2)
+    so_total_index = so_resp.text.find('<p>questions tagged</p>')
+    if so_total_index > 0:
+        so_total_str = so_resp.text[so_total_index - 50:so_total_index]
+        so_rx = re.search('summarycount.*>([0-9,]+)', so_total_str)
+    else:
+        so_total_index = so_resp.text.find('<span class="results-label">results</span>')
+        so_total_str = so_resp.text[so_total_index - 100:so_total_index]
+        so_rx = re.search('\r\n\s+([0-9,]+)', so_total_str)
+    if so_rx:
+        so_question_count = int(''.join(so_rx.groups()[0].split(',')))
+        return so_question_count
+    return 0
+
+
+"""
 Lookup dictionary for keyword search. Need to add search all keywords and aggregate results
 """
 SEARCH_KWS = {
@@ -87,48 +138,14 @@ def index_kw(kw_file, out_file=OUT_FILE):
             #else:
             #    fields.append('???')
 
-            indeed = "http://www.indeed.com/jobs?q=%s&l=" % corrected_name
-            simply_hired = "http://www.simplyhired.com/search?q=%s" % corrected_name
-            stack_overflow = "http://stackoverflow.com/search?q=%s" % name
+            # Indeed
+            fields.append(fetch_indeed([corrected_name]))
 
-            # INDEED
-            indeed_resp = requests.get(indeed)
-            indeed_total_index = indeed_resp.text.find('<div id="searchCount')
-            if indeed_total_index > 0:
-                indeed_total_str = indeed_resp.text[indeed_total_index:indeed_total_index + 100]
-                indeed_rx = re.search('Jobs [0-9,]+ to [0-9,]+ of ([0-9,]+)', indeed_total_str)
-                indeed_job_count = int(''.join(indeed_rx.groups()[0].split(',')))
-                fields.append(indeed_job_count)
-            else:
-                fields.append(0)
+            # SimplyHired
+            fields.append(fetch_simply_hired([corrected_name]))
 
-            # SIMPLYHIRED
-            sh_resp = requests.get(simply_hired)
-            sh_total_index = sh_resp.text.find('<div style="float:right">Showing ')
-            if sh_total_index > 0:
-                sh_total_str = sh_resp.text[sh_total_index:sh_total_index + 100]
-                sh_rx = re.search('[0-9,-]+ of ([0-9,]+)', sh_total_str)
-                sh_job_count = int(''.join(sh_rx.groups()[0].split(',')))
-                fields.append(sh_job_count)
-            else:
-                fields.append(0)
-
-            # STACKOVERFLOW
-            so_resp = requests.get(stack_overflow)
-            time.sleep(2)
-            so_total_index = so_resp.text.find('<p>questions tagged</p>')
-            if so_total_index > 0:
-                so_total_str = so_resp.text[so_total_index - 50:so_total_index]
-                so_rx = re.search('summarycount.*>([0-9,]+)', so_total_str)
-            else:
-                so_total_index = so_resp.text.find('<span class="results-label">results</span>')
-                so_total_str = so_resp.text[so_total_index - 100:so_total_index]
-                so_rx = re.search('\r\n\s+([0-9,]+)', so_total_str)
-            if so_rx:
-                so_question_count = int(''.join(so_rx.groups()[0].split(',')))
-                fields.append(so_question_count)
-            else:
-                fields.append(0)
+            # StackOverflow
+            fields.append(fetch_stackoverflow([name]))
 
             if pair[1]:
                 # Github available, check github for stars etc.
