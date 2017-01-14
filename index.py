@@ -53,6 +53,16 @@ def format_kw(kw_file):
     return kws
 
 
+"""
+Lookup dictionary for keyword search. Need to add search all keywords and aggregate results
+"""
+SEARCH_KWS = {
+    'Postgres': ['Postgresql'],
+    'Elasticsearch': ['elastic search'],
+    'mongoDB': ['mongo'],
+}
+
+
 OUT_FILE = os.path.join('/', 'Users', 'dlin', "index-" +
                         datetime.now().isoformat().split('T')[0] + '.csv')
 def index_kw(kw_file, out_file=OUT_FILE):
@@ -60,9 +70,9 @@ def index_kw(kw_file, out_file=OUT_FILE):
     headers = {"Accept": "application/vnd.github.v3.text-match+json"}
 
     kws = format_kw(kw_file)
-    sorted_kws = sort([kw[0] for kw in kws])
-    with open('/tmp/sorted.txt', 'w') as f:
-        f.write('\n'.join(sorted_kws))
+    #sorted_kws = sort([kw[0] for kw in kws])
+    #with open('/tmp/sorted.txt', 'w') as f:
+    #    f.write('\n'.join(sorted_kws))
     with open(out_file, 'a') as f:
         for pair in kws:
             time.sleep(60)
@@ -72,10 +82,10 @@ def index_kw(kw_file, out_file=OUT_FILE):
             corrected_name = correct_keys(pair[0])
             print "Starting for %s which was corrected to %s" % (name, corrected_name)
             fields = [name]
-            if name in sorted_kws:
-                fields.append(str(len(sorted_kws) - sorted_kws.index(name) + 1))
-            else:
-                fields.append('???')
+            #if name in sorted_kws:
+            #    fields.append(str(len(sorted_kws) - sorted_kws.index(name) + 1))
+            #else:
+            #    fields.append('???')
 
             indeed = "http://www.indeed.com/jobs?q=%s&l=" % corrected_name
             simply_hired = "http://www.simplyhired.com/search?q=%s" % corrected_name
@@ -124,18 +134,18 @@ def index_kw(kw_file, out_file=OUT_FILE):
                 # Github available, check github for stars etc.
                 url = "https://api.github.com/repos/%s/%s" % pair[1:]
                 x = requests.get(url, headers=headers)
-                page = json.loads(x.text)
+                repo = json.loads(x.text)
                 git_fields = ['network_count', 'stargazers_count', 'subscribers_count', 'html_url']
                 for field in git_fields:
-                    if field not in page:
+                    if field not in repo:
                         break
-                forks = item['network_count']
+                forks = repo['network_count']
                 fields.append(forks)
-                stars = item['stargazers_count']
+                stars = repo['stargazers_count']
                 fields.append(stars)
-                watchers = item['subscribers_count']
+                watchers = repo['subscribers_count']
                 fields.append(watchers)
-                url = item['html_url']
+                url = repo['html_url']
                 fields.append(url)
 
             line = SEPARATOR.join([unicode(x) for x in fields]).encode('utf-8')
