@@ -137,9 +137,9 @@ def index_kw(kw_file, out_file=OUT_FILE):
     headers = {"Accept": "application/vnd.github.v3.text-match+json"}
 
     kws = format_kw(kw_file)
-    #sorted_kws = sort([kw[0] for kw in kws])
-    #with open('/tmp/sorted.txt', 'w') as f:
-    #    f.write('\n'.join(sorted_kws))
+    sorted_kws = sort([kw[0] for kw in kws])
+    with open('/tmp/sorted.txt', 'w') as f:
+        f.write('\n'.join(sorted_kws))
     with open(out_file, 'a') as f:
         for pair in kws:
             time.sleep(30)
@@ -149,10 +149,10 @@ def index_kw(kw_file, out_file=OUT_FILE):
             corrected_name = correct_keys(pair[0])
             print "Starting for %s which was corrected to %s" % (name, corrected_name)
             fields = [name]
-            #if name in sorted_kws:
-            #    fields.append(str(len(sorted_kws) - sorted_kws.index(name) + 1))
-            #else:
-            #    fields.append('???')
+            if name in sorted_kws:
+                fields.append(str(len(sorted_kws) - sorted_kws.index(name) + 1))
+            else:
+                fields.append('???')
 
             if name in SEARCH_KWS:
                 terms = SEARCH_KWS[name]
