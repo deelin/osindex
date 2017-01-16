@@ -105,6 +105,22 @@ def fetch_stackoverflow(search_terms):
 
 
 """
+Requires there only be two search terms (for now)
+
+Total area of overlapping circles:
+A + B - AB
+"""
+def aggregate_searchs(terms, func):
+    assert len(terms) == 2
+   
+    a = func(terms[:1])
+    b = func(terms[1:])
+    ab = func(terms)
+
+    return a + b - ab
+
+
+"""
 Lookup dictionary for keyword search. Need to add search all keywords and aggregate results
 """
 SEARCH_KWS = {
@@ -126,7 +142,7 @@ def index_kw(kw_file, out_file=OUT_FILE):
     #    f.write('\n'.join(sorted_kws))
     with open(out_file, 'a') as f:
         for pair in kws:
-            time.sleep(60)
+            time.sleep(30)
 
             fields = []
             name = pair[0]
@@ -138,11 +154,20 @@ def index_kw(kw_file, out_file=OUT_FILE):
             #else:
             #    fields.append('???')
 
-            # Indeed
-            fields.append(fetch_indeed([corrected_name]))
+            if name in SEARCH_KWS:
+                terms = SEARCH_KWS[name]
+                terms.insert(0, name)
+                # Indeed
+                indeed_count = aggregate_searchs(terms, fetch_indeed)
+                fields.append(indeed_count)
 
-            # SimplyHired
-            fields.append(fetch_simply_hired([corrected_name]))
+                # SimplyHired
+                simplyhired_count = aggregate_searchs(terms, fetch_simplyhired)
+                fields.append(simplyhired_count)
+            else:
+                fields.append(fetch_indeed([corrected_name]))
+                fields.append(fetch_simplyhired([corrected_name]))
+
 
             # StackOverflow
             fields.append(fetch_stackoverflow([name]))
