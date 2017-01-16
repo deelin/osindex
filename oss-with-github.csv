@@ -32,7 +32,7 @@ Coffeescript,https://github.com/jashkenas/coffeescript
 Caffe,https://github.com/BVLC/caffe
 Grafana,https://github.com/grafana/grafana
 PredictionIO,https://github.com/apache/incubator-predictionio
-Postgres,https://github.com/begriffs/postgrest
+Postgres,https://github.com/postgres/postgres
 Gremlins.js,
 Node.js,https://github.com/nodejs/node-v0.x-archive
 io.js,
