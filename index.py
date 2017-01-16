@@ -142,7 +142,7 @@ def index_kw(kw_file, out_file=OUT_FILE):
         f.write('\n'.join(sorted_kws))
     with open(out_file, 'a') as f:
         for pair in kws:
-            time.sleep(30)
+            time.sleep(60)
 
             fields = []
             name = pair[0]
