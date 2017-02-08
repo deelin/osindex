@@ -18,7 +18,7 @@ Cassandra,https://github.com/apache/cassandra
 Artifactory,
 Redis,https://github.com/antirez/redis
 Serverless,https://github.com/serverless/serverless
-Gitlab,
+Gitlab,https://github.com/gitlabhq/gitlabhq
 Couchbase,
 InfluxDB,https://github.com/influxdata/influxdb
 Spark,https://github.com/apache/incubator-predictionio
@@ -61,7 +61,7 @@ Jboss,
 Chef,https://github.com/chef/chef
 Puppet,https://github.com/puppetlabs/puppet
 SugarCRM,
-Talend Open Studio,https://github.com/Talend/tsf
+Talend Open Studio,https://github.com/Talend/tdi-studio-se
 Cyanogen,https://github.com/wertarbyte/android_vendor_cyanogen
 Pentaho,https://github.com/pentaho/pentaho-platform
 XenSource,
