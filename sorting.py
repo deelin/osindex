@@ -41,6 +41,10 @@ ERROR_FACTOR_MAPPING = {
     'Puppet': ('Server', 'Apache Tomcat'),
     'Terracotta': ('Server', 'Apache Tomcat'),
 
+    'Git': ('Version Control', 'Perforce'),
+    'SVN': ('Version Control', 'Perforce'),
+    'CVS': ('Version Control', 'Perforce'),
+
     # Apache
     'Accumulo': ('Apache', 'Kafka'),
     'Apex': ('Apache', 'Kafka'),
