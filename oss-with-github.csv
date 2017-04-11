@@ -118,3 +118,6 @@ Nagios,https://github.com/NagiosEnterprises/nagioscore
 KVM,
 MidoNet,https://github.com/midonet/midonet
 Xen,https://github.com/mirage/xen
+Git,https://github.com/git/git
+SVN,https://github.com/apache/subversion
+CVS,
